@@ -25,9 +25,9 @@ params [
 
 private _colorMap = ["#40d2fb", "#b5f961", "#ffffff"];
 private _color = "";
-private _message = "<t align='center' shadow='2' color='%1' size='2' font='RobotoCondensedBold'>%2</t><t color='#ffffff' size='2' font='RobotoCondensed'>%3</t>";
+private _message = "<t align='center' shadow='2' color='%1' size='1.7' font='RobotoCondensedBold'>%2: </t> <t color='#ffffff' size='1.7' font='RobotoCondensed'>%3</t>";
 
-if (typeName _chatType === "STRING") then {
+if (typeName _chatType == "STRING") then {
     _color = _chatType;
 } else {
     _color = _colorMap select _chatType;
@@ -39,8 +39,7 @@ if (_toUpper) then {
 
 _message = formatText [_message, _color, _title, _subtitles];
 
-
-cutText [ _message, "PLAIN DOWN", 0.5, true, true];
+cutText [str _message, "PLAIN DOWN", 0.5, true, true];
 playSound _sound;
 if (_soundOut == "REPEAT") then {
 	_soundOut = _sound;

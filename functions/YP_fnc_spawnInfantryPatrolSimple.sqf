@@ -2,6 +2,7 @@
     Spawn group somewhere in area and start patrolling
 
     _unitClasses    === ARRAY, unit classes to be spawned in order
+    _side           === SIDE, units side
     _areaCenter     === POSITION, center of area to spawn group
     _areaRadius     === NUMBER [DEFAULT 50], radius of area to spawn group
     _groupBehaviour === STRING [DEFAULT "SAFE"], ["CARELESS" "SAFE" "AWARE" "COMBAT" "STEALTH"], group behaviour
@@ -12,6 +13,7 @@
  */
 params [
     "_unitClasses",
+    "_side",
     "_areaCenter",
     ["_areaRadius", 50],
     ["_groupBehaviour", "SAFE"],
@@ -20,7 +22,7 @@ params [
 ];
 
 private _position = [_areaCenter, _areaRadius] call CBA_fnc_randPos;
-private _group = [_position, _unitClasses] call BIS_fnc_spawnGroup;
+private _group = [_position, _side, _unitClasses] call BIS_fnc_spawnGroup;
 _group deleteGroupWhenEmpty true;
 _group setBehaviour _groupBehaviour;
 _group setCombatMode _groupCombat;
