@@ -3,6 +3,7 @@
     Saves unit loadout in case it does not have parachute
 
     _unitClasses    === ARRAY, unit classes to be spawned in order
+    _side           === SIDE, units side
     _areaCenter     === POSITION, center of area to spawn group
     _areaRadius     === NUMBER [DEFAULT 0], radius of area to spawn group
     _altitude       === NUMBER [DEFAULT 200], altitude to spawn group on
@@ -14,6 +15,7 @@
 
 params [
      "_unitClasses",
+     "_side",
     "_areaCenter",
     ["_areaRadius", 0],
     ["_altitude", 200],
@@ -24,7 +26,7 @@ params [
 private _position = [_areaCenter, _areaRadius] call CBA_fnc_randPos;
 _position set [2, _altitude];
 
-private _group = [_position, _unitClasses] call BIS_fnc_spawnGroup;
+private _group = [_position, _side, _unitClasses] call BIS_fnc_spawnGroup;
 _group deleteGroupWhenEmpty true;
 _group setBehaviour _groupBehaviour;
 _group setCombatMode _groupCombat;
