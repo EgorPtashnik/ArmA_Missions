@@ -21,9 +21,9 @@ params [
 	["_soundOut", "REPEAT"]
 ];
 
-_colorMap = ["#40d2fb", "#b5f961", "#ffffff"];
-_color = "";
-_message = "<t align='center' shadow='2' color='%1' size='2' font='RobotoCondensedBold'>%2</t><t color='#ffffff' size='2' font='RobotoCondensed'>%3</t>";
+private _colorMap = ["#40d2fb", "#b5f961", "#ffffff"];
+private _color = "";
+private _message = "<t align='center' shadow='2' color='%1' size='2' font='RobotoCondensedBold'>%2</t><t color='#ffffff' size='2' font='RobotoCondensed'>%3</t>";
 
 if (typeName _chatType === "STRING") then {
     _color = _chatType;
