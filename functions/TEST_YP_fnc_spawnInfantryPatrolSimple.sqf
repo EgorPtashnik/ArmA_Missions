@@ -7,6 +7,8 @@
     _groupBehaviour === STRING [DEFAULT "SAFE"], ["CARELESS" "SAFE" "AWARE" "COMBAT" "STEALTH"], group behaviour
     _groupCombat    === STRING [DEFAULT "YELLOW"], ["BLUE" "GREEN" "WHITE" "YELLOW" "RED"], group combat mode
     _engageEnemy    === BOOLEAN [DEFAULT true], group will engage detected enemy and stop patrolling
+
+    RETURN: CREATED GROUP
  */
 params [
     "_unitClasses",
@@ -34,3 +36,5 @@ if (_engageEnemy) {
         _group removeEventHandler [_thisEvent, _thisEventHandler];
     }];
 };
+
+_group;

@@ -9,6 +9,8 @@
 	_sound		=== STRING [DEFAULT "in1"], sound for radio entering: "beep", "in1", "in2", "in3", "in4", "noise1", "noise2", "noise3"
 	_withNoise	=== BOOLEAN [DEFAULT false], play noise sounds after radio entering sound
 	_soundOut	=== STRING [DEFAULT _sound] - sound to play after noise 
+	
+	RETURN: NOTHING
  */
 
 params [
