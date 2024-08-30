@@ -17,7 +17,7 @@ params [
 	"_title",
 	"_subtitles",
     ["_chatType", 0],
-	["_sound" "in1"],
+	["_sound", "in1"],
     ["_toUpper", false],
 	["_withNoise", false],
 	["_soundOut", "REPEAT"]

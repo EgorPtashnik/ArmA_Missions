@@ -15,7 +15,7 @@
 params [
      "_unitClasses",
     "_areaCenter",
-    ["_areaRadius" 0],
+    ["_areaRadius", 0],
     ["_altitude", 200],
     ["_groupBehaviour", "AWARE"],
     ["_groupCombat", "YELLOW"]

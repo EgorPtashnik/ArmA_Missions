@@ -13,7 +13,7 @@
 params [
     "_unitClasses",
     "_areaCenter",
-    ["_areaRadius" 50],
+    ["_areaRadius", 50],
     ["_groupBehaviour", "SAFE"],
     ["_groupCombat", "YELLOW"],
     ["_engageEnemy", true]

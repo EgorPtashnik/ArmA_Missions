@@ -15,7 +15,7 @@ params [
     "_unitClasses",
     "_targetPosition",
     ["_areaCenter", "DEFAULT"],
-    ["_areaRadius" 100],
+    ["_areaRadius", 100],
     ["_groupBehaviour", "AWARE"],
     ["_groupCombat", "YELLOW"],
     ["_groupFormation", "LINE"]

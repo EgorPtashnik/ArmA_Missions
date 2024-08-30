@@ -13,7 +13,7 @@
 params [
 	"_title",
 	"_subtitles",
-	["_sound" "in1"], 
+	["_sound", "in1"], 
 	["_withNoise", false],
 	["_soundOut", "REPEAT"]
 ];
