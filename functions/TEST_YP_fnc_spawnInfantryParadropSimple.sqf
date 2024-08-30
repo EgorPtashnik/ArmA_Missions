@@ -32,31 +32,30 @@ _group setCombatMode _groupCombat;
 // Add parachute if needed
 private _parachuteHandler = {
     private _loadout = false;
-    _unit = _this select 0;
-    if (backpack _unit != "B_parachute") then {
-        _unit setVariable ["savedLoadout", getUnitLoadout _unit];
-        removeBackpack _unit;
-        _unit addBackpack "B_parachute";
+    if (backpack _this != "B_parachute") then {
+        _this setVariable ["savedLoadout", getUnitLoadout _this];
+        removeBackpack _this;
+        _this addBackpack "B_parachute";
         _loadout = true;
     };
     waitUntil {
         sleep 1;
-        getPosATL _unit select 2 < 200;
+        getPosATL _this select 2 < 200;
     };
 
-    _unit action ["openParachute", _unit];
+    _this action ["openParachute", _this];
 
     if (_loadout) then {
         waitUntil {
             sleep 1;
-            isTouchingGround _unit;
+            isTouchingGround _this;
         };
         
-        removeBackpack _unit;
-        _unit setUnitLoadout (_unit getVariable "savedLoadout");
+        removeBackpack _this;
+        _this setUnitLoadout (_this getVariable "savedLoadout");
     };
 };
 
-{ [_x] spawn _parachuteHandler; } forEach units _group;
+{ _x spawn _parachuteHandler; } forEach units _group;
 
 _group;
