@@ -18,11 +18,11 @@ params [
 
 [_title, _subtitles] spawn BIS_fnc_showSubtitle;
 playSound _sound;
-if (_soundOut == "REPEAT") then {
-	_soundOut = _sound;
-};
 
 if (_withNoise) then {
+	if (_soundOut == "REPEAT") then {
+		_soundOut = _sound;
+	};
 	sleep 1;
 	playSound selectRandom ["noise1", "noise2", "noise3"];
 	sleep 5;
