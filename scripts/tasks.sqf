@@ -1,3 +1,9 @@
+/**
+	1. Create new task for player
+	2. Handle task state
+ */
+
+
 // SET TASK
 _task = [
 	player, // OWNER
@@ -14,6 +20,6 @@ _task = [
 waitUntil {
 	sleep 1;
 	//CONDITION
+	true
 };
 [_task /* or task_id STRING */, "SUCCEEDED"] call BIS_fnc_taskSetState;
-
