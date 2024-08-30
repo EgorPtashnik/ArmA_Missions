@@ -33,7 +33,7 @@ if (typeName _chatType === "STRING") then {
     _color = _colorMap select _chatType;
 };
 
-if (_toUpper) {
+if (_toUpper) then {
     _title = toUpper _title;
 };
 
