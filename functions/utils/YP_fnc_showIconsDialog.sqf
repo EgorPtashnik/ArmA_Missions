@@ -1,6 +1,7 @@
 /**
-    Show dialog with ALL icons in game
-    Put to console: 
+    Показать все доступные иконки в игре
+
+    В консоль: 
     ["onload"] call fn_iconViewer;
  */
 
