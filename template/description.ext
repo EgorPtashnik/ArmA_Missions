@@ -1,5 +1,5 @@
 class CfgSounds {
-    sounds[] = {beep, in1, in2, in3, in4, in5, in6, noise1, noise2, noise3};
+    sounds[] = {beep, in1, in2, in3, in4, in5, in6, noise1, noise2, noise3, noise4};
     
     class beep
 	{
@@ -68,6 +68,13 @@ class CfgSounds {
 	{
 		name = "noise3";
 		sound[] = {"sound\noise3.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	
+	class noise4
+	{
+		name = "noise4";
+		sound[] = {"sound\noise4.ogg", db+10, 1.0};
 		titles[] = {0,""};
 	};
 };
