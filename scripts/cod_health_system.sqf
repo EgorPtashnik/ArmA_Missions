@@ -3,30 +3,33 @@
  */
 
 {
-    // _x addEventHandler ["HandleDamage", {
-    //     private _unit this select 0;
+    {
+        _x setVariable ["healing", false];
+        _x addEventHandler ["Hit", {
+	        params ["_unit", "_source", "_damage", "_instigator"];
+            private _unitDamage = damage _unit + _damage;
+            private _isHealing = _unit getVariable "healing";
 
-    // }];
-    _x setVariable ["healing", false];
-    _x addEventHandler ["Hit", {
-        private _unit = this select 0;
-        private _damage = this select 2;
-        private _unitDamage = damage unit + _damage;
-        private _isHealing = _x getVariable "healing";
-
-        if (_unitDamage > 0.4 && !_isHealing ) then {
-            _x setVariable ["healing", true];
-            [_x] spawn {
-                private _unit = this select 0;
-                private _unitDamage = damage _unit;
-                while {_unitDamage <= 0.2 || _unitDamage == 1} do {
-                    _unit setDamage _unitDamage - 0.025;
-                    sleep 1;
+            if (_unitDamage > 0.4 && !_isHealing ) then {
+                _unit setCaptive true;
+                _unit setVariable ["healing", true];
+                [_unit] spawn {
+                    private _unit = _this select 0;
+                    private _unitDamage = damage _unit;
+                    while {_unit getVariable "healing" && alive _unit} do {
+                        private _unitDamage = damage _unit - 0.025;
+                        _unit setDamage _unitDamage;
+                        hintSilent format ["Healing %1", str _unitDamage];
+                        if (_unitDamage <= 0.2) then {
+                            _unit setVariable ["healing", false];
+                        };
+                        sleep 1;
+                    };
+                    _unit setVariable ["healing", false];
                 };
-                _unit setVariable ["healing", false];
             };
-        };
-        
-        _damage;
-    }];
-} forEach allUnits;
+            
+            _damage;
+        }];
+    } forEach allUnits
+} call CBA_fnc_directCall;
