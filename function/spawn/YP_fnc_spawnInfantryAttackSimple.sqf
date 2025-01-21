@@ -16,16 +16,12 @@ params [
     "_unitClasses",
     "_side",
     "_targetPosition",
-    ["_areaCenter", "DEFAULT"],
+    "_areaCenter",
     ["_areaRadius", 300],
     ["_groupBehaviour", "AWARE"],
     ["_groupCombat", "YELLOW"],
     ["_groupFormation", "LINE"]
 ];
-
-if (_areaCenter == "DEFAULT") then {
-    _areaCenter = _targetPosition;
-};
 
 private _position = [_areaCenter, _areaRadius] call CBA_fnc_randPos;
 private _group = [_position, _side, _unitClasses] call BIS_fnc_spawnGroup;
