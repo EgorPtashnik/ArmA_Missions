@@ -6,4 +6,4 @@
 fnc_subtitles = compile preprocessFileLineNumbers "function\dialog\YP_fnc_showSubtitlesCOD.sqf";
 
 // Run in unscheduled environment
-remoteExecCall "setup.sqf";
+execVM "initBriefing.sqf";
